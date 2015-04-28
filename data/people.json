@@ -2,6 +2,7 @@
     "people": [
         {
             "name": "Adam Wright",
+            "portrait": "/people/portraits/he-man.png",
             "department": "Strategic Sales",
             "phone": "919-555-5555",
             "email": "adam.wright@gmail.com",
@@ -36,6 +37,7 @@
         },
         {
             "name": "Joe Manfrey",
+            "portrait": "/people/portraits/man-at-arms.jpg",
             "department": "Creative Anachronisms",
             "phone": "202-555-5555",
             "email": "joe.manfrey@mycompany.com",
@@ -81,6 +83,7 @@
         {
             "name": "Allison Murray",
             "department": "IT",
+            "portrait": "/people/portraits/she-ra.jpg",
             "phone": "571-555-5555",
             "email": "allison.murray@mycompany.com",
             "education": [

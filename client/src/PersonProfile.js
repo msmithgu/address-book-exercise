@@ -7,6 +7,7 @@ define(['react'], function (React) {
 					<div className="app-person-profile-container"></div>
 					);
 			}
+			var portrait = person.portrait ? person.portrait : "avatar.png";
 			var educationNodes = person.education
 			.map(function(education, index) {
 				var endYear = education.endYear || 'present';
@@ -41,7 +42,7 @@ define(['react'], function (React) {
 		        <div className="app-person-profile-container">
 		            <div className="app-person-profile docs-highlight docs-blue" data-intro="Person Profile" data-position="bottom">
 		                <div className="app-person-profile-header">
-		                    <img className="app-person-profile-photo" src="avatar.png" />
+		                    <img className="app-person-profile-photo" src={portrait} />
 
 		                    <h2>{person.name}</h2>
 		                    <div className="app-person-profile-department">

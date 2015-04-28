@@ -9,6 +9,7 @@ var app = express();
 app.use('/mockup/', express.static(path.join(__dirname, 'mockup')));
 app.use('/bower_components/', express.static(path.join(__dirname, 'bower_components')));
 app.use('/build/', express.static(path.join(__dirname, 'client/build')));
+app.use('/people/portraits/', express.static(path.join(__dirname, 'data/portraits')));
 app.get('/api/people', function(req, res) {
     res.end(JSON.stringify(people, null, '    '));
 });
