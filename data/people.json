@@ -8,6 +8,12 @@
             "education": [
                 {
                     "institution": "NC State University",
+                    "startYear": 2004,
+                    "endYear": 2005,
+                    "degree": "Master's, Computer Science"
+                },
+                {
+                    "institution": "NC State University",
                     "startYear": 2001,
                     "endYear": 2004,
                     "degree": "Bachelor's, Computer Science"
@@ -18,6 +24,12 @@
                 {
                     "institution": "Megacorp",
                     "startYear": 2001,
+                    "title": "Software Developer"
+                },
+                {
+                    "institution": "Umbrella Corp",
+                    "startYear": 1980,
+                    "endYear": 2001,
                     "title": "Software Developer"
                 }
             ]
