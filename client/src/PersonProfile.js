@@ -1,21 +1,28 @@
 define(['react'], function (React) {
 	return React.createClass({
 		render: function() {
+			var person = this.props.person;
+			if (!person) {
+				return (
+					<div className="app-person-profile-container"></div>
+					);
+			}
+			console.log(person);
 			return (
 		        <div className="app-person-profile-container">
 		            <div className="app-person-profile docs-highlight docs-blue" data-intro="Person Profile" data-position="bottom">
 		                <div className="app-person-profile-header">
 		                    <img className="app-person-profile-photo" src="avatar.png" />
 
-		                    <h2>Adam Wright</h2>
+		                    <h2>{person.name}</h2>
 		                    <div className="app-person-profile-department">
-		                        Strategic Sales
+		                        {person.department}
 		                    </div>
 		                    <div className="app-person-profile-phone-number">
-		                        919-555-5555
+		                        {person.phone}
 		                    </div>
-		                    <div className="app-person-profile-phone-number">
-		                        <a href="mailto:adam.wright@mycompany.com">adam.wright@mycompany.com</a>
+		                    <div className="app-person-profile-email">
+		                        <a href="mailto:{person.email}">{person.email}</a>
 		                    </div>
 		                </div>
 		                <div className="app-section">

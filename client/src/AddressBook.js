@@ -6,6 +6,7 @@ define(['react', 'jquery', 'Directory', 'PersonProfile'], function (React, jQuer
 				dataType: 'json',
 				success: function(data) {
 					this.setState({
+						selectedPerson: data.people[0],
 						people: data.people
 					});
 				}.bind(this),
@@ -16,6 +17,7 @@ define(['react', 'jquery', 'Directory', 'PersonProfile'], function (React, jQuer
 		},
 		getInitialState: function() {
 			return {
+				selectedPerson: null,
 				people: []
 			};
 		},
@@ -26,7 +28,7 @@ define(['react', 'jquery', 'Directory', 'PersonProfile'], function (React, jQuer
 			return (
 				<div className="app-address-book">
 			        <Directory people={this.state.people} />
-			        <PersonProfile />
+			        <PersonProfile person={this.state.selectedPerson} />
 			    </div>
 				);
 		}
