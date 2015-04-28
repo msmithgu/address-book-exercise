@@ -7,7 +7,36 @@ define(['react'], function (React) {
 					<div className="app-person-profile-container"></div>
 					);
 			}
-			console.log(person);
+			var educationNodes = person.education
+			.map(function(education, index) {
+				var endYear = education.endYear || 'present';
+				return (
+					<div key={index} className="app-history-item">
+                        <div className="app-history-item-dates">
+                            {education.startYear}-{endYear}
+                        </div>
+                        <div className="app-history-item-body">
+                            <div className="app-history-item-title">{education.institution}</div>
+                            {education.degree}
+                        </div>
+                    </div>
+					);
+			});
+			var experienceNodes = person.workExperience
+			.map(function(experience, index) {
+				var endYear = experience.endYear || 'present';
+				return (
+					<div key={index} className="app-history-item">
+                        <div className="app-history-item-dates">
+                            {experience.startYear}-{endYear}
+                        </div>
+                        <div className="app-history-item-body">
+                            <div className="app-history-item-title">{experience.institution}</div>
+                            {experience.title}
+                        </div>
+                    </div>
+					);
+			});
 			return (
 		        <div className="app-person-profile-container">
 		            <div className="app-person-profile docs-highlight docs-blue" data-intro="Person Profile" data-position="bottom">
@@ -30,24 +59,7 @@ define(['react'], function (React) {
 		                        <h3>Education</h3>
 		                    </div>
 		                    <div className="app-section-body">
-		                        <div className="app-history-item">
-		                            <div className="app-history-item-dates">
-		                                2004-2005
-		                            </div>
-		                            <div className="app-history-item-body">
-		                                <div className="app-history-item-title">NC State University</div>
-		                                Master's, Computer Science
-		                            </div>
-		                        </div>
-		                        <div className="app-history-item">
-		                            <div className="app-history-item-dates">
-		                                2001-2004
-		                            </div>
-		                            <div className="app-history-item-body">
-		                                <div className="app-history-item-title">NC State University</div>
-		                                Bachelor's, Computer Science
-		                            </div>
-		                        </div>
+		                        {educationNodes}
 		                    </div>
 		                </div>
 
@@ -56,24 +68,7 @@ define(['react'], function (React) {
 		                        <h3>Experience</h3>
 		                    </div>
 		                    <div className="app-section-body">
-		                        <div className="app-history-item">
-		                            <div className="app-history-item-dates">
-		                                2001-Present
-		                            </div>
-		                            <div className="app-history-item-body">
-		                                <div className="app-history-item-title">Megacorp</div>
-		                                Software Developer
-		                            </div>
-		                        </div>
-		                        <div className="app-history-item">
-		                            <div className="app-history-item-dates">
-		                                1980-2001
-		                            </div>
-		                            <div className="app-history-item-body">
-		                                <div className="app-history-item-title">Umbrella Corp</div>
-		                                Software Developer
-		                            </div>
-		                        </div>
+		                        {experienceNodes}
 		                    </div>
 		                </div>
 
