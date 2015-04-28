@@ -1,48 +1,37 @@
 define(['react'], function (React) {
 	return React.createClass({
 		render: function() {
+			var personNodes = this.props.people
+			.sort(function(a, b) {
+				return (a.name.toUpperCase() > b.name.toUpperCase());
+			})
+			.reduce(function(arr, currentValue) {
+				var previousChar = arr[arr.length - 1] ? arr[arr.length - 1].name[0].toUpperCase() : null;
+				var currentChar = currentValue.name[0].toUpperCase();
+				if (currentChar !== previousChar) {
+					arr.push(currentChar);
+				}
+				arr.push(currentValue);
+				return arr;
+			}, [])
+			.map(function(personOrString, index) {
+				if (typeof personOrString === 'string') {
+					return (
+						<div key={index} className="app-directory-separator">{personOrString}</div>
+						);
+				} else {
+					return (
+						<div key={index} className="app-directory-item">{personOrString.name}</div>
+						);
+				}
+			});
+
 			return (
 				<div className="app-directory-container">
-		            <div className="app-directory">
-		                <div className="app-directory-separator">A</div>
-		                <div className="app-directory-item">
-		                    Adam Wright
-		                </div>
-		                <div className="app-directory-item">
-		                    Alex Watson
-		                </div>
-
-		                <div className="app-directory-separator">B</div>
-		                <div className="app-directory-item">
-		                    Blair Michaels
-		                </div>
-		                <div className="app-directory-item" data-intro="Directory Item" data-position="bottom">
-		                    Brent Edwards
-		                </div>
-
-		                <div className="app-directory-separator">C</div>
-		                <div className="app-directory-item">
-		                    Charles Nelson
-		                </div>
-		                <div className="app-directory-item" data-intro="Directory Item" data-position="bottom">
-		                    Chris Matthews
-		                </div>
-
-		                <div className="app-directory-separator">D</div>
-		                <div className="app-directory-item">
-		                    Damien Tyson
-		                </div>
-		                <div className="app-directory-item">
-		                    Daniel Boone
-		                </div>
-		                <div className="app-directory-item">
-		                    Derek Edwards
-		                </div>
-		                <div className="app-directory-item" data-intro="Directory Item" data-position="bottom">
-		                    Drake Johnson
-		                </div>
-		            </div>
-		        </div>
+					<div className="app-directory">
+						{personNodes}
+					</div>
+				</div>
 				);
 		}
 	})
