@@ -24,10 +24,16 @@ define(['react', 'jquery', 'Directory', 'PersonProfile'], function (React, jQuer
 		componentDidMount: function() {
 			this.loadPeopleFromServer();
 		},
+		personClickHandler: function(person) {
+			this.setState({
+				selectedPerson: person,
+				people: this.state.people
+			})
+		},
 		render: function() {
 			return (
 				<div className="app-address-book">
-			        <Directory people={this.state.people} />
+			        <Directory personClickHandler={this.personClickHandler} people={this.state.people} />
 			        <PersonProfile person={this.state.selectedPerson} />
 			    </div>
 				);

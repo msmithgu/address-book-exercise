@@ -1,6 +1,15 @@
 define(['react'], function (React) {
 	return React.createClass({
+		handlePersonClick: function (person) {
+			var personClickHandler = this.props.personClickHandler;
+			return function() {
+				if (personClickHandler) {
+					personClickHandler(person);
+				}
+			};
+		},
 		render: function() {
+			var handlePersonClick = this.handlePersonClick;
 			var personNodes = this.props.people
 			.sort(function(a, b) {
 				return (a.name.toUpperCase() > b.name.toUpperCase());
@@ -21,7 +30,7 @@ define(['react'], function (React) {
 						);
 				} else {
 					return (
-						<div key={index} className="app-directory-item">{personOrString.name}</div>
+						<div key={index} className="app-directory-item" onClick={handlePersonClick(personOrString)}>{personOrString.name}</div>
 						);
 				}
 			});
