@@ -5,7 +5,10 @@ Programming Exercise: Address Book
 1. Install NodeJS
 2. Install Dependencies
 ```bash
+npm install -g bower react-tools
 npm install
+bower install
+jsx client/src client/build
 ```
 
 ## Run Server
