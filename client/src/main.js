@@ -7,7 +7,7 @@ require.config({
 
 require(['react', 'AddressBook'], function(React, AddressBook) {
 	React.render(
-		<AddressBook />,
+		<AddressBook url="/api/people" />,
 		document.getElementById('app-address-book')
 		);
 });
