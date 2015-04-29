@@ -1,6 +1,8 @@
 Programming Exercise: Address Book
 ---
 
+Got it all in. Pretty fun.
+
 ## Setup
 1. Install NodeJS
 2. Install Dependencies
