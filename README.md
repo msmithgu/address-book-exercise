@@ -23,6 +23,9 @@ http://localhost:8080/mockup/
 **People Data:**
 http://localhost:8080/api/people
 
+**Working App:**
+http://localhost:8080/
+
 ## Goals
 - Fork this repo
 - Create a simple address book web application and use the given static
