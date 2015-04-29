@@ -102,6 +102,47 @@
                     "title": "Directory of IT"
                 }
             ]
+        },
+        {
+            "name": "Mark Smith-Guerrero",
+            "department": "Research and Development",
+            "portrait": "/people/portraits/msg.jpg",
+            "phone": "571-228-8479",
+            "email": "msmithgu@gmail.com",
+            "education": [
+                {
+                    "institution": "George Mason University",
+                    "startYear": 2000,
+                    "endYear": 2007,
+                    "degree": "Economics, Math, Computer Science"
+                }
+            ],
+
+            "workExperience": [
+                {
+                    "institution": "Questex",
+                    "startYear": 2014,
+                    "title": "Sr. Web Developer"
+                },
+                {
+                    "institution": "SHRM",
+                    "startYear": 2011,
+                    "endYear": 2014,
+                    "title": "Web Developer"
+                },
+                {
+                    "institution": "Rockcreek Strategic Marketing",
+                    "startYear": 2010,
+                    "endYear": 2011,
+                    "title": "Web Developer"
+                },
+                {
+                    "institution": "Blackbarn Media",
+                    "startYear": 2008,
+                    "endYear": 2010,
+                    "title": "Sr. Web Developer"
+                }
+            ]
         }
     ]
 }
