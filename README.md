@@ -3,6 +3,8 @@ Programming Exercise: Address Book
 
 Got it all in. Pretty fun.
 
+Note that the action is really mostly in the client/src/ directory.
+
 ## Setup
 1. Install NodeJS
 2. Install Dependencies
