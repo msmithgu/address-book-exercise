@@ -1,5 +1,15 @@
 define(['react'], function (React) {
 	return React.createClass({
+		getInitialState: function() {
+			return {
+				reverse: false
+			};
+		},
+		handleReverseClick: function () {
+			this.setState({
+				reverse: !this.state.reverse
+			});
+		},
 		handlePersonClick: function (person) {
 			var personClickHandler = this.props.personClickHandler;
 			return function() {
@@ -10,9 +20,14 @@ define(['react'], function (React) {
 		},
 		render: function() {
 			var handlePersonClick = this.handlePersonClick;
+			var reverse = this.state.reverse;
 			var personNodes = this.props.people
 			.sort(function(a, b) {
-				return (a.name.toUpperCase() > b.name.toUpperCase());
+				if (reverse) {
+					return (a.name.toUpperCase() < b.name.toUpperCase());
+				} else {
+					return (a.name.toUpperCase() > b.name.toUpperCase());
+				}
 			})
 			.reduce(function(arr, currentValue) {
 				var previousChar = arr[arr.length - 1] ? arr[arr.length - 1].name[0].toUpperCase() : null;
@@ -37,6 +52,7 @@ define(['react'], function (React) {
 
 			return (
 				<div className="app-directory-container">
+					<button onClick={this.handleReverseClick} className="app-directory-reverse">reverse order</button>
 					<div className="app-directory">
 						{personNodes}
 					</div>
