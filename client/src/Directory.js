@@ -23,11 +23,8 @@ define(['react'], function (React) {
 			var reverse = this.state.reverse;
 			var personNodes = this.props.people
 			.sort(function(a, b) {
-				if (reverse) {
-					return (a.name.toUpperCase() < b.name.toUpperCase());
-				} else {
-					return (a.name.toUpperCase() > b.name.toUpperCase());
-				}
+				var result = a.name.localeCompare(b.name);
+				return reverse ? 0 - result : result;
 			})
 			.reduce(function(arr, currentValue) {
 				var previousChar = arr[arr.length - 1] ? arr[arr.length - 1].name[0].toUpperCase() : null;
