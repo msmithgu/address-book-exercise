@@ -21,31 +21,26 @@ define(['react'], function (React) {
 		render: function() {
 			var handlePersonClick = this.handlePersonClick;
 			var reverse = this.state.reverse;
+			var lastLetter;
+
 			var personNodes = this.props.people
 			.sort(function(a, b) {
 				var result = a.name.localeCompare(b.name);
 				return reverse ? 0 - result : result;
 			})
 			.reduce(function(arr, currentValue) {
-				var previousChar = arr[arr.length - 1] ? arr[arr.length - 1].name[0].toUpperCase() : null;
-				var currentChar = currentValue.name[0].toUpperCase();
-				if (currentChar !== previousChar) {
-					arr.push(currentChar);
+				var firstLetter = currentValue.name.substring(0, 1).toUpperCase();
+				if (firstLetter !== lastLetter) {
+					arr.push((
+						<div key={arr.length} className="app-directory-separator">{firstLetter}</div>
+						));
+					lastLetter = firstLetter;
 				}
-				arr.push(currentValue);
+				arr.push((
+					<div key={arr.length} className="app-directory-item" onClick={handlePersonClick(currentValue)}>{currentValue.name}</div>
+					));
 				return arr;
-			}, [])
-			.map(function(personOrString, index) {
-				if (typeof personOrString === 'string') {
-					return (
-						<div key={index} className="app-directory-separator">{personOrString}</div>
-						);
-				} else {
-					return (
-						<div key={index} className="app-directory-item" onClick={handlePersonClick(personOrString)}>{personOrString.name}</div>
-						);
-				}
-			});
+			}, []);
 
 			return (
 				<div className="app-directory-container">
